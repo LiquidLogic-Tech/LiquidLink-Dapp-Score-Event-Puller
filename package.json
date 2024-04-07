@@ -1,0 +1,25 @@
+{
+  "name": "liquidlink-event-puller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.549.0",
+    "@mysten/sui.js": "^0.51.2",
+    "@types/node": "^20.12.5",
+    "@vercel/kv": "^1.0.1",
+    "aws-sdk": "^2.1594.0",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2"
+  }
+}
