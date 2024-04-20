@@ -12,7 +12,7 @@ import { sleep } from "./utils/sleep";
 
 async function main() {
   const package_id = getLiquidLinkDappScorePackageId(network);
-  console.log({ package_id });
+  console.log({ network, package_id });
   const kv_key = `liquidlink_event_puller_${network}_${package_id}`;
   let nextCursor = await kv.get(kv_key);
   let index = 0;
@@ -26,6 +26,7 @@ async function main() {
             InputObject: package_id,
           },
           cursor: (nextCursor as any) || undefined,
+          order: "ascending",
         });
       } catch (e) {
         index += 1;
@@ -34,6 +35,7 @@ async function main() {
       }
 
       blocks.data.forEach(async (block) => {
+        console.log("Process: ", block.digest);
         const result = await axios.post(
           "https://backend.liquidlink.io/api/process_tx",
           {
@@ -41,7 +43,7 @@ async function main() {
             network,
           }
         );
-        console.log("Process: ", block.digest, result.data);
+        console.log(result.data);
       });
 
       nextCursor = blocks.nextCursor;
@@ -51,6 +53,8 @@ async function main() {
         break;
       }
     }
+    console.log("sleep 3 second");
+    console.log({ network, nextCursor });
     await sleep(3);
   }
 }

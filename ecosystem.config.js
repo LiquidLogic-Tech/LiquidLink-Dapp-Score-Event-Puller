@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "app-mainnet",
+      name: "liquidlink-event-puller-mainnet",
       script: "node",
       args: "-r ts-node/register/transpile-only src/index.ts",
       watch: true,
@@ -10,7 +10,7 @@ module.exports = {
       },
     },
     {
-      name: "app-testnet",
+      name: "liquidlink-event-puller-testnet",
       script: "node",
       args: "-r ts-node/register/transpile-only src/index.ts",
       watch: true,

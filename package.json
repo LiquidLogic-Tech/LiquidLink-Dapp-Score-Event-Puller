@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon src/index.ts"
+    "start": "pm2 start ecosystem.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +17,7 @@
     "@vercel/kv": "^1.0.1",
     "aws-sdk": "^2.1594.0",
     "dotenv": "^16.4.5",
-    "liquidlink": "^0.0.28",
+    "liquidlink": "^0.0.35",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
