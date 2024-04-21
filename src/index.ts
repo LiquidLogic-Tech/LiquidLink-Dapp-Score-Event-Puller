@@ -9,6 +9,7 @@ import { getLiquidLinkDappScorePackageId } from "liquidlink";
 import axios from "axios";
 import { getSuiClientByIndex } from "./utils/getSuiClientByIndex";
 import { sleep } from "./utils/sleep";
+import "isomorphic-fetch";
 
 async function main() {
   const package_id = getLiquidLinkDappScorePackageId(network);
