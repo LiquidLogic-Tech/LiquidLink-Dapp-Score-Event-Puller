@@ -13,7 +13,6 @@ import "isomorphic-fetch";
 
 async function main() {
   const package_id = getLiquidLinkDappScorePackageId(network);
-  console.log({ network, package_id });
   const kv_key = `liquidlink_event_puller_${network}_${package_id}`;
   let nextCursor = await kv.get(kv_key);
   let index = 0;
@@ -38,7 +37,7 @@ async function main() {
       blocks.data.forEach(async (block) => {
         console.log("Processing: ", { digest: block.digest });
         const result = await axios.post(
-          "https://dev.backend.liquidlink.io/api/process_tx",
+          "https://backend.liquidlink.io/api/process_tx",
           {
             tx_digest: block.digest,
             network,
@@ -55,7 +54,7 @@ async function main() {
       }
     }
     console.log("sleep 3 second");
-    console.log({ network, nextCursor });
+    console.log({ network, nextCursor, package_id });
     await sleep(3);
   }
 }
