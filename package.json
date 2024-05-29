@@ -18,7 +18,7 @@
     "aws-sdk": "^2.1594.0",
     "dotenv": "^16.4.5",
     "isomorphic-fetch": "^3.0.0",
-    "liquidlink": "^0.1.16",
+    "liquidlink": "^0.1.21",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
