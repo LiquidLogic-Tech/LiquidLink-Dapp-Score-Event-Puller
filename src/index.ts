@@ -38,7 +38,7 @@ async function main() {
       blocks.data.forEach(async (block) => {
         console.log("Processing: ", { digest: block.digest });
         const result = await axios.post(
-          "https://backend.liquidlink.io/api/process_tx",
+          "https://dev.backend.liquidlink.io/api/process_tx",
           {
             tx_digest: block.digest,
             network,
